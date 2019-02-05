@@ -1,0 +1,71 @@
+<div style="padding: 1rem">
+  <form style="width: 100%;">
+    <h3>Thứ tự về</h3>
+    <mat-form-field>
+      <input matInput name="ve1" type="number" placeholder="Về nhất" [(ngModel)]="config.ve1">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput name="ve2" type="number" placeholder="Về nhì" [(ngModel)]="config.ve2">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput name="ve3" type="number" placeholder="Về ba" [(ngModel)]="config.ve3">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput name="ve4" type="number" placeholder="Về bét" [(ngModel)]="config.ve4">
+    </mat-form-field>
+
+    <h3>Heo</h3>
+
+    <mat-form-field>
+      <input matInput name="heoCo" type="number" placeholder="Heo cơ" [(ngModel)]="config.heoCo">
+      <mat-hint align="end">(hint: Bằng về nhất)</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="heoRo" type="number" placeholder="Heo rô" [(ngModel)]="config.heoRo">
+      <mat-hint align="end">(hint: Bằng về nhất)</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="heoChuon" type="number" placeholder="Heo chuồn" [(ngModel)]="config.heoChuon">
+      <mat-hint align="end">(hint: Bằng về nhất/2)</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="heoBich" type="number" placeholder="Heo bích" [(ngModel)]="config.heoBich">
+      <mat-hint align="end">(hint: Bằng về nhất/2)</mat-hint>
+    </mat-form-field>
+
+    <h3>Hàng</h3>
+    <mat-form-field>
+      <input matInput  name="doithong3" type="number" placeholder="Ba đôi thông" [(ngModel)]="config.doithong3">
+      <mat-hint align="end">(hint: Bằng về nhất)</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="doithong4" type="number" placeholder="Bốn đôi thông" [(ngModel)]="config.doithong4">
+      <mat-hint align="end">(hint: Bằng về nhất)</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="tuquy" type="number" placeholder="Tứ quý" [(ngModel)]="config.tuquy">
+      <mat-hint align="end">(hint: Bằng về nhất)</mat-hint>
+    </mat-form-field>
+
+    <h3>Ăn trắng</h3>
+    <mat-form-field>
+      <input matInput name="antrang" type="number" placeholder="Điểm cộng (trừ)" [(ngModel)]="config.antrang">
+      <mat-hint align="end">(hint: Bằng về nhất)</mat-hint>
+    </mat-form-field>
+
+    <h3>Xử</h3>
+    <mat-form-field>
+      <input matInput name="xu" type="number" placeholder="Điểm cộng (trừ)" [(ngModel)]="config.xu">
+      <mat-hint align="end">(hint: Bằng về nhất)</mat-hint>
+    </mat-form-field>
+    <div style="width: 100%; text-align: right">
+      <button mat-raised-button color="primary" (click)="save()">
+        <mat-icon>save</mat-icon> Save
+      </button>
+    </div>
+  </form>
+
+</div>

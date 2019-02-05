@@ -1,0 +1,16 @@
+<mat-nav-list>
+  <mat-list-item *ngFor="let player of players; last as last;let i = index" [disableRipple]="false" (click)="openDialog(player)">
+    <mat-icon [style.color]="player.color">face</mat-icon>
+    <h3 matLine>
+      <span> {{player.name}} </span>
+      <!--<span class="demo-2"> &#45;&#45; asda </span>-->
+    </h3>
+    <!--<small matLine> Player {{i + 1}}</small>-->
+    <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+  </mat-list-item>
+</mat-nav-list>
+<div style="text-align: center; margin-bottom: 2rem">
+  <button mat-fab color="primary" [routerLink]="['/']">
+    Start
+  </button>
+</div>
