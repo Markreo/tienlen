@@ -8,7 +8,7 @@ import {MatSnackBar} from '@angular/material';
   styleUrls: ['./setting.component.css']
 })
 export class SettingComponent implements OnInit {
-  config = {};
+  config: any;
 
   constructor(private settingService: SettingService,
               private snackBar: MatSnackBar) {
