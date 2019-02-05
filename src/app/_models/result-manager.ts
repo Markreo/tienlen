@@ -107,6 +107,8 @@ export class ResultManager {
     players.forEach(player => {
       if (this.order.includes(player.id)) {
         this.result[player.id.toString()].plus.push(['antrang']);
+        this.result[player.id.toString()].plus.push(['antrang']);
+        this.result[player.id.toString()].plus.push(['antrang']);
       } else {
         this.result[player.id.toString()].minus.push(['antrang']);
       }
@@ -114,13 +116,19 @@ export class ResultManager {
   }
 
   xu(players: Player[]) {
+    let count = 0;
     players.forEach(player => {
-      if (this.order.includes(player.id)) {
-        this.result[player.id.toString()].plus.push(['xu']);
-      } else {
+      if (!this.order.includes(player.id)) {
         this.result[player.id.toString()].minus.push(['xu']);
+        count++;
       }
     });
+
+
+    for (let i = 0; i < count; i++) {
+      this.result[this.order[0]].plus.push(['xu']);
+      this.result[this.order[0]].plus.push(['xu']);
+    }
   }
 
 
