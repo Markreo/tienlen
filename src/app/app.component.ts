@@ -30,6 +30,6 @@ export class AppComponent implements OnInit {
     localStorage.removeItem('players');
     localStorage.removeItem('histories');
     localStorage.removeItem('config');
-    this.router.navigate(['/player'], {skipLocationChange: true});
+    location.reload();
   }
 }

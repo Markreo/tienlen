@@ -14,6 +14,10 @@
           <mat-icon>settings</mat-icon>
           <p matLine>Settings</p>
         </mat-list-item>
+        <mat-list-item role="listitem" [routerLink]="['/help']" [skipLocationChange]="true">
+          <mat-icon>help</mat-icon>
+          <p matLine>Tutorial</p>
+        </mat-list-item>
         <mat-list-item role="listitem" (click)="onCleanCache()">
           <mat-icon>delete</mat-icon>
           <p matLine>Clean Cache</p>

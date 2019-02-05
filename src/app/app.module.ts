@@ -23,6 +23,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {SettingService} from './_services/setting.service';
 import { HangComponent } from './game/hang/hang.component';
+import { HelpComponent } from './help/help.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { HangComponent } from './game/hang/hang.component';
     SettingComponent,
     PlayerComponent,
     PlayerFormComponent,
-    HangComponent
+    HangComponent,
+    HelpComponent
   ],
   entryComponents: [PlayerFormComponent, MatSnackBarContainer, HangComponent],
   imports: [
