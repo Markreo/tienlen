@@ -1,0 +1,91 @@
+<br>
+<div>
+  <div>
+    <h3 style="margin: 0 0 0 1rem">Về thứ {{game.resultManager.order.length + 1}}:</h3>
+    <mat-grid-list cols="2">
+      <mat-grid-tile *ngFor="let player of game.playerManager.players;">
+        <mat-card>
+          <mat-card-header [style.color]="player.color">
+            <mat-card-title>
+              <mat-icon>face</mat-icon>
+              {{player.name}}
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content style="text-align: center">
+            <button mat-button style="font-size: 3rem; color: #c0c0c0" (click)="finishRound(player)">
+              {{game.resultManager.getOrder(player)}}<sup *ngIf="game.resultManager.getOrder(player)=== 1" class="mcl">st</sup>
+              <sup *ngIf="game.resultManager.getOrder(player)=== 2" class="mcl">nd</sup>
+              <sup *ngIf="game.resultManager.getOrder(player)=== 3" class="mcl">rd</sup>
+              <sup *ngIf="game.resultManager.getOrder(player)> 3" class="mcl">th</sup>
+            </button>
+          </mat-card-content>
+
+          <mat-card-footer>
+            <div style="display: flex; justify-content: space-between">
+              <button mat-icon-button (click)="remove(player)">
+                <mat-icon>remove</mat-icon>
+              </button>
+              <small>(<span *ngIf="tinhdiem(player) >= 0">+</span>{{tinhdiem(player)}} điểm)</small>
+              <button mat-icon-button (click)="add(player)">
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+          </mat-card-footer>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <div style="display: flex; justify-content: space-around; width: 100%">
+
+    </div>
+  </div>
+  <hr>
+
+  <div class="footer">
+    <button mat-button (click)="reset()"><i class="fas fa-undo"></i> Reset</button>
+    <button mat-button *ngIf="game.resultManager.result.id" (click)="onDelete()" style="color: red"><i
+      class="fas fa-trash"></i> Delete
+    </button>
+    <!--    <button mat-button (click)="antrang()"><i class="far fa-flag"></i> Ăn trắng</button>-->
+    <!--    <button mat-button (click)="xu()"><i class="far fa-flag"></i> Xử</button>-->
+    <button mat-button color="primary" (click)="newGame()"><i
+      class="far fa-flag"></i> Lưu
+    </button>
+  </div>
+
+
+  <hr>
+  <div style="padding: 1rem">
+
+
+    <h3 style="margin: 0">Results:</h3>
+    <div style="width: 100%">
+      <!--    <tr>-->
+      <!--      <th [style.color]="player.color"></th>-->
+      <!--    </tr>-->
+      <mat-list>
+        <mat-list-item>
+          <div *ngFor="let player of game.playerManager.players" style="width: 25%; text-align: center" [style.color]="player.color">
+            {{player.name}}
+          </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <ng-container *ngFor="let his of game.resultManager.histories">
+          <mat-list-item role="option" (click)="backToHis(his.id)" matRipple>
+            <div *ngFor="let player of game.playerManager.players" style="width: 25%; text-align: center">
+              {{tinhdiemHis(his.result[player.id])}}
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+        </ng-container>
+      </mat-list>
+
+      <!--    <tr *ngIf="game.resultManager.histories.length > 1">-->
+      <!--      <th *ngFor="let player of game.playerManager.players" [style.color]="player.color">-->
+      <!--        {{tongDiem(player)}}-->
+      <!--      </th>-->
+      <!--    </tr>-->
+    </div>
+  </div>
+</div>
+<br>

@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Edit Player</h1>
+<form>
+  <div mat-dialog-content>
+    <mat-form-field style="width: 100%">
+      <input matInput name="name" placeholder="Name" (click)="$event.target.select()" [(ngModel)]="data.name">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions style="width: 100%">
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button type="submit" mat-button [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+  </div>
+</form>

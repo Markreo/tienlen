@@ -1,0 +1,25 @@
+<div style="display: flex; justify-content: space-between">
+  <p>
+    Tổng điểm:
+    <span *ngFor="let option of hang.selectedOptions.selected; last as last">
+    {{config[option.value]}}
+      <span *ngIf="!last">+</span>
+    </span>
+    <span *ngIf="hang.selectedOptions.selected.length > 1"> = {{total(hang.selectedOptions.selected)}}</span>
+  </p>
+  <button mat-raised-button color="primary" (click)="onOK(hang.selectedOptions.selected)">OK</button>
+</div>
+
+<mat-selection-list #hang [ngModel]="data">
+  <mat-list-option value="heoCo">Heo Cơ</mat-list-option>
+  <mat-list-option value="heoRo">Heo Rô</mat-list-option>
+  <mat-list-option value="heoChuon">Heo Chuồn</mat-list-option>
+  <mat-list-option value="heoBich">Heo Bích</mat-list-option>
+  <mat-list-option value="doithong3">Ba Đôi thông</mat-list-option>
+  <mat-list-option value="doithong4">Bốn Đôi thông</mat-list-option>
+  <mat-list-option value="tuquy">Tứ Quý</mat-list-option>
+  <mat-list-option value="antrang">Ăn trắng</mat-list-option>
+  <mat-list-option value="xu">Xử</mat-list-option>
+</mat-selection-list>
+
+

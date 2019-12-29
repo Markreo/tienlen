@@ -1,0 +1,40 @@
+<mat-drawer-container class="example-container" (backdropClick)="drawer.close()">
+  <mat-drawer #drawer mode="over">
+    <div style="width: 100%; height: 100%">
+      <mat-nav-list role="navigation">
+        <mat-list-item role="listitem" [routerLink]="['/']">
+          <mat-icon>home</mat-icon>
+          <p matLine>Home</p>
+        </mat-list-item>
+        <mat-list-item role="listitem"  [routerLink]="['/player']" [skipLocationChange]="true">
+          <mat-icon>face</mat-icon>
+          <p matLine>Player</p>
+        </mat-list-item>
+        <mat-list-item role="listitem"  [routerLink]="['/setting']" [skipLocationChange]="true">
+          <mat-icon>settings</mat-icon>
+          <p matLine>Settings</p>
+        </mat-list-item>
+        <mat-list-item role="listitem" [routerLink]="['/help']" [skipLocationChange]="true">
+          <mat-icon>help</mat-icon>
+          <p matLine>Tutorial</p>
+        </mat-list-item>
+        <mat-list-item role="listitem" (click)="onCleanCache()">
+          <mat-icon>delete</mat-icon>
+          <p matLine>Clean Cache</p>
+        </mat-list-item>
+
+      </mat-nav-list>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Ghi điểm</span>
+    </mat-toolbar>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
