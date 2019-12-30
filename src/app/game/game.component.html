@@ -65,7 +65,8 @@
       <!--    </tr>-->
       <mat-list>
         <mat-list-item>
-          <div *ngFor="let player of game.playerManager.players" style="width: 25%; text-align: center" [style.color]="player.color">
+          <div *ngFor="let player of game.playerManager.players" style="width: 25%; text-align: center"
+               [style.color]="player.color">
             {{player.name}}
           </div>
         </mat-list-item>
@@ -73,18 +74,28 @@
         <ng-container *ngFor="let his of game.resultManager.histories">
           <mat-list-item role="option" (click)="backToHis(his.id)" matRipple>
             <div *ngFor="let player of game.playerManager.players" style="width: 25%; text-align: center">
+              <ng-container *ngIf="his.result[player.id]?.plus?.length">
+                <mat-icon color="primary">arrow_upward</mat-icon>
+              </ng-container>
+              <ng-container *ngIf="his.result[player.id]?.minus?.length">
+                <mat-icon color="warn">arrow_downward</mat-icon>
+              </ng-container>
               {{tinhdiemHis(his.result[player.id])}}
             </div>
           </mat-list-item>
           <mat-divider></mat-divider>
         </ng-container>
+
+        <mat-list-item *ngIf="game.resultManager.histories.length > 1">
+          <div *ngFor="let player of game.playerManager.players" [style.color]="player.color"
+               style="width: 25%; text-align: center">
+            <strong>{{tongDiem(player)}}</strong>
+          </div>
+        </mat-list-item>
+
       </mat-list>
 
-      <!--    <tr *ngIf="game.resultManager.histories.length > 1">-->
-      <!--      <th *ngFor="let player of game.playerManager.players" [style.color]="player.color">-->
-      <!--        {{tongDiem(player)}}-->
-      <!--      </th>-->
-      <!--    </tr>-->
+
     </div>
   </div>
 </div>
